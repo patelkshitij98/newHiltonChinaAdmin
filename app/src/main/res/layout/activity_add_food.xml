@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ravi.hiltonadmin1.AddFood"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <ImageButton
+        android:padding="10dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/ibFoodImage"
+        android:onClick="FoodImage"/>
+
+    <Spinner
+        android:id="@+id/sCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
+
+    <EditText
+        android:id="@+id/eItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Food Item name" />
+
+    <EditText
+        android:id="@+id/eItemDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Item Description"/>
+
+    <EditText
+
+        android:id="@+id/eItemPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Item Price"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/bAddFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Item Menu"
+        android:onClick="AddItem"/>
+
+</LinearLayout>

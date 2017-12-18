@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ravi.hiltonadmin1.SignIn"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Hello welcome"
+        android:id="@+id/tRegisterStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_marginTop="20dp"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:id="@+id/ePhone"/>
+
+    <EditText
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Verify Code"
+        android:id="@+id/eVerifyCode"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:onClick="SignIn"
+            android:text="Sign IN"
+            android:id="@+id/bSignIn"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="Verify"
+            android:id="@+id/bVerify"
+            android:text="Verify Code"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bResend"
+            android:onClick="Resend"
+            android:text="Resend"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
