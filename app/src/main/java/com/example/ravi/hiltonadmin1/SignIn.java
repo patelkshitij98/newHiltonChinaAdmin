@@ -38,6 +38,7 @@ public class SignIn extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
 
+    private EditText eAdminCode;
     private TextView tRegisterStatus;
     private EditText ePhone;
     private EditText eVerifyCode;
@@ -75,6 +76,7 @@ public class SignIn extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("AdminData");
 
+        eAdminCode=(EditText)findViewById(R.id.eAdminCode);
         bResend=(Button)findViewById(R.id.bResend);
         ePhone=(EditText)findViewById(R.id.ePhone);
         eVerifyCode=(EditText)findViewById(R.id.eVerifyCode);
@@ -433,9 +435,17 @@ public class SignIn extends AppCompatActivity {
 
     public void SignIn(View view)
     {
+        if(TextUtils.isEmpty(eAdminCode.getText().toString().trim()))
+        {
+            eAdminCode.setError("cannot be Empty");
+        }
 
+        else if(!eAdminCode.getText().toString().equals("slateproductions"))
+        {
+            eAdminCode.setError("Sorry! Wrong code ");
+        }
 
-        if(!validatephonenumber())
+        else if(!validatephonenumber())
         {
             ePhone.setError("cannot be empty");
         }
@@ -469,7 +479,7 @@ public class SignIn extends AppCompatActivity {
     {
         //user signed in for first time
         Log.d(TAG,"Entering UserInfo");
-        Intent i=new Intent(this,UserInfo.class);
+        Intent i=new Intent(this, com.example.ravi.hiltonadmin1.UserInfo.class);
         Bundle extras=new Bundle();
         extras.putString("PhoneNumber",user.getPhoneNumber());
         extras.putString("UserId",user.getUid());

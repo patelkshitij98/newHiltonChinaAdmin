@@ -2,6 +2,7 @@ package com.example.ravi.hiltonadmin1;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -94,9 +95,13 @@ public class AddFood extends AppCompatActivity {
 
     public void FoodImage(View view)
     {
-        Intent GalleryIntent=new Intent(Intent.ACTION_GET_CONTENT);
-        GalleryIntent.setType("image/*");
-        startActivityForResult(GalleryIntent,GALLREQ);
+        Intent intent=new Intent(Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "Selectpictures"),GALLREQ);
+
     }
 
     @Override
@@ -115,40 +120,71 @@ public class AddFood extends AppCompatActivity {
 
     public void AddItem(View view)
     {
+
         final String String_Name=eItemName.getText().toString().trim();
         final String String_Description=eItemDescription.getText().toString().trim();
         final String String_Price=eItemPrice.getText().toString().trim();
+
+
 
         if(TextUtils.isEmpty(String_Name))
         {
             eItemName.setError("Cannot be empty");
         }
 
-        if(TextUtils.isEmpty(String_Description))
+        else if(TextUtils.isEmpty(String_Description))
         {
-            eItemName.setError("Cannot be empty");
+            eItemDescription.setError("Cannot be empty");
         }
 
-        if(TextUtils.isEmpty(String_Price))
+        else if(TextUtils.isEmpty(String_Price))
         {
-            eItemName.setError("Cannot be empty");
+            eItemPrice.setError("Cannot be empty");
         }
+
+
 
         else
         {
-            StorageReference filepath = storageReference.child(uri.getLastPathSegment());
-            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    final Uri downloadurl = taskSnapshot.getDownloadUrl();
-                    Toast.makeText(AddFood.this,"Image Uploaded",Toast.LENGTH_LONG).show();
-                    final DatabaseReference newPost=mRef.child(sCategory.getSelectedItem().toString()).push();
-                    newPost.child("Name").setValue(String_Name);
-                    newPost.child("Desc").setValue(String_Description);
-                    newPost.child("Price").setValue(String_Price);
-                    newPost.child("Image").setValue(downloadurl.toString());
-                }
-            });
+            ibFoodImage.setEnabled(false);
+            eItemName.setEnabled(false);
+            bAddFood.setEnabled(false);
+            eItemDescription.setEnabled(false);
+            eItemPrice.setEnabled(false);
+
+            if(ibFoodImage.getDrawable()==null)
+            {
+                final DatabaseReference newPost=mRef.child(sCategory.getSelectedItem().toString()).push();
+                newPost.child("Name").setValue(String_Name);
+                newPost.child("Desc").setValue(String_Description);
+                newPost.child("Price").setValue(String_Price);
+                newPost.child("Image").setValue("https://firebasestorage.googleapis.com/v0/b/hiltonchina-6351c.appspot.com/o/Item%2Fgeneralfood.jpg?alt=media&token=089a0562-d8a2-4b2a-8b22-e72ba64e3e2a");
+            }
+            else
+            {
+                StorageReference filepath = storageReference.child(uri.getLastPathSegment());
+                filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        final Uri downloadurl = taskSnapshot.getDownloadUrl();
+
+                        final DatabaseReference newPost=mRef.child(sCategory.getSelectedItem().toString()).push();
+                        newPost.child("Name").setValue(String_Name);
+                        newPost.child("Desc").setValue(String_Description);
+                        newPost.child("Price").setValue(String_Price);
+                        newPost.child("Image").setValue(downloadurl.toString());
+
+
+                    }
+                });
+            }
+
+            Toast.makeText(AddFood.this,"Item Uploaded Uploaded",Toast.LENGTH_LONG).show();
+            finish();
+
+
+
+
         }
     }
 }

@@ -25,6 +25,13 @@
         android:id="@+id/ePhone"/>
 
     <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/eAdminCode"
+        android:hint="Enter Admin Code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
         android:inputType="number"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
