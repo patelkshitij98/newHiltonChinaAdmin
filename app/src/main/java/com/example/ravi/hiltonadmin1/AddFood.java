@@ -158,7 +158,7 @@ public class AddFood extends AppCompatActivity {
                 newPost.child("Name").setValue(String_Name);
                 newPost.child("Desc").setValue(String_Description);
                 newPost.child("Price").setValue(String_Price);
-                newPost.child("Image").setValue("https://firebasestorage.googleapis.com/v0/b/hiltonchina-6351c.appspot.com/o/Item%2Fgeneralfood.jpg?alt=media&token=089a0562-d8a2-4b2a-8b22-e72ba64e3e2a");
+                newPost.child("Image").setValue(null);
             }
             else
             {
