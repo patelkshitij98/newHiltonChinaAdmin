@@ -15,6 +15,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    /*** View food Items ***/
+    public void ViewFood(View view)
+    {
+        Intent i =new Intent(this,ViewItems.class);
+        startActivity(i);
+    }
     /***function to add Food******/
     public void AddFood(View view)
     {
@@ -30,4 +36,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         finish(); //to destroy this activity
     }
+
 }
