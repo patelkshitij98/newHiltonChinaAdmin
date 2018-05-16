@@ -1,5 +1,6 @@
 package com.example.ravi.hiltonadmin1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,6 +59,8 @@ public class CategoriesRecyclerAdapter extends RecyclerView.Adapter<CategoriesRe
                             bundle.putString("Title",arrayList.get(position));
                             i.putExtras(bundle);
                             context.startActivity(i);
+                            ((Activity)context).finish();
+
                     }
 
 

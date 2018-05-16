@@ -1,6 +1,8 @@
 package com.example.ravi.hiltonadmin1;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +35,16 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tItemTitle.setText(arrayList.get(position).getItemName());
+        holder.lItemRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context,ItemInfo.class);
+                i.putExtra("Item",arrayList.get(position));
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override

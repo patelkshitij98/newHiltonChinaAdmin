@@ -23,12 +23,15 @@ public class CategoryItems extends AppCompatActivity {
     private RecyclerView rItemList;
     private DatabaseReference databaseReference;
     private ArrayList<Items> arrayList;
+    private static ItemListAdapter itemListAdapter;
 
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +53,14 @@ public class CategoryItems extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         databaseReference= FirebaseDatabase.getInstance().getReference("ItemData").child(Title);
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int count=0;
+                arrayList.clear();
                 for(DataSnapshot data : dataSnapshot.getChildren())
                 {
+
                     final String ItemCategory = Title;
                     final String ItemId = data.getKey();
                     final String ItemName = data.child("Name").getValue(String.class);
@@ -69,7 +74,7 @@ public class CategoryItems extends AppCompatActivity {
 
                     if(count==dataSnapshot.getChildrenCount())
                     {
-                        ItemListAdapter itemListAdapter = new ItemListAdapter(CategoryItems.this,arrayList);
+                         itemListAdapter = new ItemListAdapter(CategoryItems.this,arrayList);
                         rItemList.setAdapter(itemListAdapter);
                         rItemList.addItemDecoration(new DividerItemDecoration(CategoryItems.this,DividerItemDecoration.VERTICAL));
                         rItemList.setLayoutManager(new LinearLayoutManager(CategoryItems.this));
@@ -87,5 +92,9 @@ public class CategoryItems extends AppCompatActivity {
 
 
 
+
+
     }
+
+
 }

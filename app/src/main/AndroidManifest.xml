@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddFood" />
-        <activity android:name=".SignIn"></activity>
+        <activity android:name=".SignIn" />
         <activity android:name=".UserInfo" />
         <activity android:name=".ViewItems" />
-        <activity android:name=".CategoryItems"
-            android:theme="@style/Mytheme">
-
-        </activity>
+        <activity
+            android:name=".CategoryItems"
+            android:theme="@style/Mytheme"></activity>
+        <activity android:name=".ItemInfo"></activity>
     </application>
 
 </manifest>

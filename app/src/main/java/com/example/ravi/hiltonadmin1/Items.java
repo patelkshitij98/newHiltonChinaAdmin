@@ -1,6 +1,9 @@
 package com.example.ravi.hiltonadmin1;
 
-public class Items {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Items implements Parcelable {
 
 
     private String ImageUrl;
@@ -46,7 +49,11 @@ public class Items {
         return ItemPrice;
     }
 
-    Items(String ItemId, String ItemName,String ItemCategory,String ItemNumber, String ItemDescription, String ItemPrice,String ImageUrl)
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+    Items(String ItemId, String ItemName, String ItemCategory, String ItemNumber, String ItemDescription, String ItemPrice, String ImageUrl)
     {
         this.ImageUrl=ImageUrl;
         this.ItemId=ItemId;
@@ -58,4 +65,45 @@ public class Items {
         this.ItemPrice= ItemPrice;
 
     }
+
+    public Items(Parcel in)
+    {
+        this.ItemId=in.readString();
+        this.ItemName=in.readString();
+        this.ItemCategory=in.readString();
+        this.ItemNumber=in.readString();
+        this.ItemPrice=in.readString();
+        this.ItemDescription=in.readString();
+        this.ImageUrl=in.readString();
+    }
+
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(ItemId);
+        parcel.writeString(ItemName);
+        parcel.writeString(ItemCategory);
+        parcel.writeString(ItemNumber);
+        parcel.writeString(ItemPrice);
+        parcel.writeString(ItemDescription);
+        parcel.writeString(ImageUrl);
+    }
+
+    public static final Parcelable.Creator<Items> CREATOR = new Creator<Items>() {
+        @Override
+        public Items createFromParcel(Parcel source) {
+            return  new Items(source);
+        }
+
+        @Override
+        public Items[] newArray(int size) {
+            return new Items[size];
+        }
+    };
 }
