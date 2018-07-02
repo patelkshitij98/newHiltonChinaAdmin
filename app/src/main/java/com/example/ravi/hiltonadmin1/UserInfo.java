@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class UserInfo extends AppCompatActivity {
 
@@ -61,6 +64,8 @@ public class UserInfo extends AppCompatActivity {
             AdminDataRef.child(String_UserId).child(USERNAME).setValue(String_Username);
             AdminDataRef.child(String_UserId).child(EMAIL).setValue(String_Email);
             AdminDataRef.child(String_UserId).child(PHONE).setValue(String_Phone);
+            FirebaseDatabase.getInstance().getReference("AdminData").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("FirebaseToken").setValue(FirebaseInstanceId.getInstance().getToken());
+            subscribeToOrdersTopic();
 
 
             finish();
@@ -68,5 +73,10 @@ public class UserInfo extends AppCompatActivity {
 
 
         }
+    }
+
+    public void subscribeToOrdersTopic()
+    {
+        FirebaseMessaging.getInstance().subscribeToTopic("Orders");
     }
 }

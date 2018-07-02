@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -110,10 +111,9 @@ public class AddFood extends AppCompatActivity {
         if(requestCode==GALLREQ&&resultCode==RESULT_OK)
         {
             uri=data.getData();
-            ibFoodImage.setImageURI(uri);
-            ViewGroup.LayoutParams params=ibFoodImage.getLayoutParams();
-            params.height= ViewGroup.LayoutParams.WRAP_CONTENT;
-            params.width= ViewGroup.LayoutParams.WRAP_CONTENT;
+            Picasso.with(AddFood.this).load(uri).fit().into(ibFoodImage);
+
+
 
         }
     }

@@ -3,6 +3,7 @@
     package="com.example.ravi.hiltonadmin1">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -24,8 +25,21 @@
         <activity android:name=".ViewItems" />
         <activity
             android:name=".CategoryItems"
-            android:theme="@style/Mytheme"></activity>
-        <activity android:name=".ItemInfo"></activity>
+            android:theme="@style/Mytheme" />
+        <activity android:name=".ItemInfo" />
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".ViewOrders"></activity>
     </application>
 
 </manifest>

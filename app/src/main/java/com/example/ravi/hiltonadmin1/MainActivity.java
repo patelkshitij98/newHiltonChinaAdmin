@@ -37,4 +37,10 @@ public class MainActivity extends AppCompatActivity {
         finish(); //to destroy this activity
     }
 
+    public void viewOrders(View view)
+    {
+        Intent i=new Intent(this,ViewOrders.class);
+        startActivity(i);
+    }
+
 }

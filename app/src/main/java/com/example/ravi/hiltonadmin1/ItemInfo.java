@@ -49,7 +49,7 @@ public class ItemInfo extends AppCompatActivity {
         eItemPrice = findViewById(R.id.eItemPrice);
 
         bSave = findViewById(R.id.bAddFood);
-        Picasso.with(this).load(item.getImageUrl()).placeholder(R.drawable.ravi).into(ibFoodImage);
+        Picasso.with(this).load(item.getImageUrl()).fit().placeholder(R.drawable.ravi).into(ibFoodImage);
         eItemName.setText(item.getItemName());
         eItemDesc.setText(item.getItemDescription());
         eItemPrice.setText(item.getItemPrice());
