@@ -5,12 +5,52 @@ public class Order {
     String userName;
     String address;
     String paid;
+    String Phone;
+    String PaymentType;
+    String Progress;
+    String registrationToken;
 
-    public Order(String orderId, String userName, String address, String paid) {
+    public Order(String orderId, String userName, String address, String paid, String phone, String paymentType, String progress,String registrationToken) {
         this.orderId = orderId;
         this.userName = userName;
         this.address = address;
         this.paid = paid;
+        Phone = phone;
+        PaymentType = paymentType;
+        Progress = progress;
+        this.registrationToken = registrationToken;
+    }
+
+    public String getRegistrationToken() {
+        return registrationToken;
+    }
+
+    public void setRegistrationToken(String registrationToken) {
+        this.registrationToken = registrationToken;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+    public void setPaymentType(String paymentType) {
+        PaymentType = paymentType;
+    }
+
+    public void setProgress(String progress) {
+        Progress = progress;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public String getPaymentType() {
+        return PaymentType;
+    }
+
+    public String getProgress() {
+        return Progress;
     }
 
     public String getOrderId() {
