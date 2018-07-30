@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,7 +49,8 @@ public class DeliveryFragment extends DialogFragment {
         });
         AlertDialog dialog = builder.create();
         Bundle bundle = getArguments();
-        final String FireToken = bundle.getString("FirebaseToken");
+        final String OrderId = bundle.getString("OrderId");
+        final String UserId = bundle.getString("UserId");
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(final DialogInterface dialog) {
@@ -56,8 +58,8 @@ public class DeliveryFragment extends DialogFragment {
                 positive.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        EditText  eUsername = ((Dialog)dialog).findViewById(R.id.edelUsername);
-                        EditText eContact = ((Dialog) dialog).findViewById(R.id.edelContact);
+                        final EditText  eUsername = ((Dialog)dialog).findViewById(R.id.edelUsername);
+                        final EditText eContact = ((Dialog) dialog).findViewById(R.id.edelContact);
                         if(eUsername.getText().toString().isEmpty())
                         {
                             eUsername.setError("Cannot be empty");
@@ -70,34 +72,12 @@ public class DeliveryFragment extends DialogFragment {
                         else
                         {
 
-                            //Intantiate the RequestQueue.
-                            RequestQueue queue = Volley.newRequestQueue((Context)getActivity());
-                            String url = "https://us-central1-hiltonchina-6351c.cloudfunctions.net/sendOrderAccepted";
+                           //Push data to Firebase Database
+                            FirebaseDatabase.getInstance().getReference("UserData/"+UserId+"/Orders/"+OrderId).child("Delivery").child("DeliveryBoy").setValue(eUsername.getText().toString());
+                            FirebaseDatabase.getInstance().getReference("UserData/"+UserId+"/Orders/"+OrderId).child("Delivery").child("DeliverContact").setValue(eContact.getText().toString());
+                            FirebaseDatabase.getInstance().getReference("Orders/"+OrderId+"/Progress").setValue("Accepted");
 
-                            //Request a string response from the provided URL.
-                            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    Toast.makeText((Context) getActivity(), "String Response",Toast.LENGTH_SHORT);
-                                    dialog.dismiss();
-                                }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                }
-                            })
-                            {
-                                @Override
-                                protected Map<String, String> getParams() throws AuthFailureError {
-                                    Map<String,String> params = new HashMap<String,String>();
-                                    params.put("FirebaseToken",FireToken);
-
-
-                                    return params;
-                                }
-                            };
-                            queue.add(stringRequest);
+                            dialog.dismiss();
 
 
 

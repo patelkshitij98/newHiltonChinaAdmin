@@ -39,7 +39,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ViewOrders"></activity>
+        <activity android:name=".ViewOrders" />
+        <activity android:name=".OrderItems"></activity>
     </application>
 
 </manifest>

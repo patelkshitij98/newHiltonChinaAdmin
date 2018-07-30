@@ -23,6 +23,22 @@
           }
         },
         {
+          "client_id": "17623371398-pfv3sso68r8qd52ligrbrf96rodudah6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ravi.hiltonadmin",
+            "certificate_hash": "e931848d07cbba65701f090508ae3cb8614845cc"
+          }
+        },
+        {
+          "client_id": "17623371398-ukf94so7nkhga1hv4t6g5om2961lq2rn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ravi.hiltonadmin",
+            "certificate_hash": "945d5783bd2cf9fb17df6d2fb6a07016474e4042"
+          }
+        },
+        {
           "client_id": "17623371398-dbhr6vqb5hifeop75jf3a8a8gf7638tf.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -64,6 +80,14 @@
           "android_info": {
             "package_name": "com.example.ravi.hiltonadmin1",
             "certificate_hash": "a54207cb09fe2c24bb29a819b75da15a71fa23a7"
+          }
+        },
+        {
+          "client_id": "17623371398-e8sp3me0u5odgg3pvf89uqi73dujve35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ravi.hiltonadmin1",
+            "certificate_hash": "945d5783bd2cf9fb17df6d2fb6a07016474e4042"
           }
         },
         {

@@ -1,7 +1,16 @@
 package com.example.ravi.hiltonadmin1;
 
-public class Order {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+
+public class Order  {
     String orderId;
+
+
+
+    String userId;
     String userName;
     String address;
     String paid;
@@ -9,9 +18,15 @@ public class Order {
     String PaymentType;
     String Progress;
     String registrationToken;
+    ArrayList<Items> ItemList;
 
-    public Order(String orderId, String userName, String address, String paid, String phone, String paymentType, String progress,String registrationToken) {
+
+
+
+
+    public Order(String orderId,String userId, String userName, String address, String paid, String phone, String paymentType, String progress,String registrationToken,ArrayList<Items> ItemList) {
         this.orderId = orderId;
+        this.userId = userId;
         this.userName = userName;
         this.address = address;
         this.paid = paid;
@@ -19,6 +34,26 @@ public class Order {
         PaymentType = paymentType;
         Progress = progress;
         this.registrationToken = registrationToken;
+        this.ItemList = ItemList;
+    }
+
+
+
+
+    public ArrayList<Items> getItemList() {
+        return ItemList;
+    }
+
+    public void setItemList(ArrayList<Items> itemList) {
+        ItemList = itemList;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getRegistrationToken() {
@@ -84,4 +119,6 @@ public class Order {
     public void setPaid(String paid) {
         this.paid = paid;
     }
+
+
 }

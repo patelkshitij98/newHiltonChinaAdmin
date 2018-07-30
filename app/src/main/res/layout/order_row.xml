@@ -23,6 +23,7 @@
 
         <ImageView
             android:id="@+id/iStatus"
+            android:src="@drawable/in_process_status"
             android:layout_weight="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -82,6 +83,7 @@
 
         <ImageView
             android:id="@+id/iPayment"
+
             android:layout_marginTop="10dp"
             android:layout_weight="1.5"
             android:layout_width="match_parent"
@@ -93,7 +95,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:orientation="horizontal"
         android:gravity="right"
         android:layout_height="wrap_content">
@@ -114,6 +116,12 @@
             android:text="Cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bView"
+            android:text="View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 
