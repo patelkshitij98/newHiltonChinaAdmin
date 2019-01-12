@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +26,7 @@ public class ViewOrderAdapter extends RecyclerView.Adapter<ViewOrderAdapter.View
     private Context context;
     private LayoutInflater inflater;
     private ArrayList<Order> orders;
+    private String Order = "Order";
 
 
     public ViewOrderAdapter(Context context, ArrayList<Order> orders) {
@@ -51,6 +54,31 @@ public class ViewOrderAdapter extends RecyclerView.Adapter<ViewOrderAdapter.View
         holder.tPaid.setText(order.getPaid());
 
 
+        /***setting initial conditions for progress of order***/
+        if(order.getProgress().equals("Accepted"))
+        {
+            holder.iStatus.setImageResource(R.drawable.accepted_status);
+            holder.bAccepted.setEnabled(false);
+        }
+        else if(order.getProgress().equals("Delivered"))
+        {
+            holder.iStatus.setImageResource(R.drawable.delivered_status);
+            holder.bAccepted.setEnabled(false);
+            holder.bCancel.setEnabled(false);
+            holder.bDelivered.setEnabled(false);
+        }
+        else if(order.getProgress().equals("Canceled"))
+        {
+            holder.iStatus.setImageResource(R.drawable.dispute_status);
+            holder.bAccepted.setEnabled(false);
+            holder.bCancel.setEnabled(false);
+            holder.bDelivered.setEnabled(false);
+        }
+
+
+
+
+
         //changing status eventlistner
         FirebaseDatabase.getInstance().getReference("Orders/"+order.getOrderId()+"/Progress").addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,11 +89,23 @@ public class ViewOrderAdapter extends RecyclerView.Adapter<ViewOrderAdapter.View
                     holder.iStatus.setImageResource(R.drawable.accepted_status);
                     FirebaseDatabase.getInstance().getReference("UserData/"+order.getUserId()+"/Orders/"+order.getOrderId()+"/Progress").setValue("Accepted");
                     holder.bAccepted.setEnabled(false);
+
                 }
                 else if(progress.equals("Delivered"))
                 {
                     holder.iStatus.setImageResource(R.drawable.delivered_status);
                     FirebaseDatabase.getInstance().getReference("UserData/"+order.getUserId()+"/Orders/"+order.getOrderId()+"/Progress").setValue("Delivered");
+                    holder.bAccepted.setEnabled(false);
+                    holder.bCancel.setEnabled(false);
+                    holder.bDelivered.setEnabled(false);
+                }
+                else if(progress.equals("Canceled"))
+                {
+                    holder.iStatus.setImageResource(R.drawable.dispute_status);
+                    FirebaseDatabase.getInstance().getReference("UserData/"+order.getUserId()+"/Orders/"+order.getOrderId()+"/Progress").setValue("Canceled");
+                    holder.bAccepted.setEnabled(false);
+                    holder.bCancel.setEnabled(false);
+                    holder.bDelivered.setEnabled(false);
                 }
 
             }
@@ -105,6 +145,7 @@ public class ViewOrderAdapter extends RecyclerView.Adapter<ViewOrderAdapter.View
             @Override
             public void onClick(View v) {
                 // for cancelling or dispute in order.
+                FirebaseDatabase.getInstance().getReference("Orders/"+order.getOrderId()+"/Progress").setValue("Canceled");
             }
         });
 
@@ -123,6 +164,8 @@ public class ViewOrderAdapter extends RecyclerView.Adapter<ViewOrderAdapter.View
 
     @Override
     public int getItemCount() {
+
+        Log.d(Order,"Orders size1= "+orders.size());
         return orders.size();
     }
 

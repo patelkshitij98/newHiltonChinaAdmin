@@ -3,7 +3,7 @@ package com.example.ravi.hiltonadmin1;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Items implements Parcelable {
+public class    Items implements Parcelable {
 
 
     private String ImageUrl;

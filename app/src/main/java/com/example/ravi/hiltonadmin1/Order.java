@@ -7,13 +7,11 @@ import java.util.ArrayList;
 
 public class Order  {
     String orderId;
-
-
-
     String userId;
     String userName;
     String address;
     String paid;
+    String amount;
     String Phone;
     String PaymentType;
     String Progress;
@@ -24,12 +22,13 @@ public class Order  {
 
 
 
-    public Order(String orderId,String userId, String userName, String address, String paid, String phone, String paymentType, String progress,String registrationToken,ArrayList<Items> ItemList) {
+    public Order(String orderId,String userId, String userName, String address, String paid, String amount, String phone, String paymentType, String progress,String registrationToken,ArrayList<Items> ItemList) {
         this.orderId = orderId;
         this.userId = userId;
         this.userName = userName;
         this.address = address;
         this.paid = paid;
+        this.amount=amount;
         Phone = phone;
         PaymentType = paymentType;
         Progress = progress;
