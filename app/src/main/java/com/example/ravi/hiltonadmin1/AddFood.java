@@ -173,6 +173,7 @@ public class AddFood extends AppCompatActivity {
                         newPost.child("Desc").setValue(String_Description);
                         newPost.child("Price").setValue(String_Price);
                         newPost.child("Image").setValue(downloadurl.toString());
+                        newPost.child("Avail").setValue(true);
 
 
                     }

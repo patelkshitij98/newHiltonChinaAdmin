@@ -13,6 +13,7 @@ public class    Items implements Parcelable {
     private String ItemDescription;
     private String ItemPrice;
     private String ItemId;
+    private boolean avail;
 
     /**getters and setters***/
 
@@ -53,7 +54,7 @@ public class    Items implements Parcelable {
         return ImageUrl;
     }
 
-    Items(String ItemId, String ItemName, String ItemCategory, String ItemNumber, String ItemDescription, String ItemPrice, String ImageUrl)
+    Items(String ItemId, String ItemName, String ItemCategory, String ItemNumber, String ItemDescription, String ItemPrice, String ImageUrl,boolean avail)
     {
         this.ImageUrl=ImageUrl;
         this.ItemId=ItemId;
@@ -61,8 +62,8 @@ public class    Items implements Parcelable {
         this.ItemCategory=ItemCategory;
         this.ItemDescription=ItemDescription;
         this.ItemNumber=ItemNumber;
-
         this.ItemPrice= ItemPrice;
+        this.avail=avail;
 
     }
 
@@ -106,4 +107,12 @@ public class    Items implements Parcelable {
             return new Items[size];
         }
     };
+
+    public boolean isAvail() {
+        return avail;
+    }
+
+    public void setAvail(boolean avail) {
+        this.avail = avail;
+    }
 }

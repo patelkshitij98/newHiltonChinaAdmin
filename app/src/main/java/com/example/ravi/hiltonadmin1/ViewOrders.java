@@ -81,7 +81,7 @@ public class    ViewOrders extends AppCompatActivity {
                                         String ItemName = ItemInfo.child("Name").getValue(String.class);
                                         String ItemDescription = ItemInfo.child("Desc").getValue(String.class);
                                         String ItemPrice = ItemInfo.child("Price").getValue(String.class);
-                                        Items i = new Items(ItemId,ItemName,ItemCategory,ItemNumber,ItemDescription,ItemPrice,Image);
+                                        Items i = new Items(ItemId,ItemName,ItemCategory,ItemNumber,ItemDescription,ItemPrice,Image,true);
                                         ItemList.add(i);
                                         countItems[0]++;
                                         Log.d(order,"countItems "+countItems[0]+" TotalItems "+TotalItems[0]);

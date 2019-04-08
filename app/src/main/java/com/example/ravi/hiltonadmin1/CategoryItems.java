@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
@@ -68,14 +69,16 @@ public class CategoryItems extends AppCompatActivity {
                     final String ItemPrice = data.child("Price").getValue(String.class);
                     final String ItemNumber ="-1";
                     final String ImageUrl = data.child("Image").getValue(String.class);
+                    final boolean avail = data.child("Avail").getValue(boolean.class);
                     count++;
-                    Items item= new Items(ItemId,ItemName,ItemCategory,ItemNumber,Desc,ItemPrice,ImageUrl);
+                    Items item= new Items(ItemId,ItemName,ItemCategory,ItemNumber,Desc,ItemPrice,ImageUrl,avail);
                     arrayList.add(item);
 
                     if(count==dataSnapshot.getChildrenCount())
                     {
                          itemListAdapter = new ItemListAdapter(CategoryItems.this,arrayList);
                         rItemList.setAdapter(itemListAdapter);
+
                         rItemList.addItemDecoration(new DividerItemDecoration(CategoryItems.this,DividerItemDecoration.VERTICAL));
                         rItemList.setLayoutManager(new LinearLayoutManager(CategoryItems.this));
                     }
