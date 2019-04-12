@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.ravi.hiltonadmin1.AddFood"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="40dp"
+    android:background="@drawable/back4">
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -23,6 +24,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tRegisterStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Add food item"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        />
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -35,34 +46,64 @@
     <Spinner
         android:id="@+id/sCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded_spinner"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"></Spinner>
 
     <EditText
+        android:background="@drawable/rounder_corner"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
         android:id="@+id/eItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Food Item name" />
 
     <EditText
+        android:background="@drawable/rounder_corner"
+        android:layout_marginTop="20dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
         android:id="@+id/eItemDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Item Description"/>
 
     <EditText
-
+        android:background="@drawable/rounder_corner"
+        android:layout_marginTop="20dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
         android:id="@+id/eItemPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Item Price"
         android:inputType="number" />
-
-    <Button
-        android:id="@+id/bAddFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Item Menu"
-        android:onClick="AddItem"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/add_w"
+            android:background="@drawable/btn_rounded"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/bAddFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Item Menu"
+            android:onClick="AddItem"/>
+    </RelativeLayout>
 </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -6,17 +6,24 @@
     android:layout_height="match_parent"
     tools:context="com.example.ravi.hiltonadmin1.SignIn"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@drawable/back4">
 
     <TextView
-        android:textColor="@color/colorAccent"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Hello welcome"
         android:id="@+id/tRegisterStatus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:text="Hello, Welcome!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        />
     <EditText
+        android:background="@drawable/rounder_corner"
+        android:drawableLeft="@drawable/phone_b"
+        android:fontFamily="sans-serif"
         android:layout_marginTop="20dp"
         android:inputType="phone"
         android:layout_width="match_parent"
@@ -25,50 +32,77 @@
         android:id="@+id/ePhone"/>
 
     <EditText
-        android:layout_marginTop="15dp"
+        android:background="@drawable/rounder_corner"
+        android:drawableLeft="@drawable/key_b"
+        android:layout_marginTop="20dp"
         android:id="@+id/eAdminCode"
         android:hint="Enter Admin Code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:background="@drawable/rounder_corner"
+        android:drawableLeft="@drawable/password_b"
         android:inputType="number"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Verify Code"
         android:id="@+id/eVerifyCode"/>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
         <Button
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/signin_w"
+            android:background="@drawable/btn_rounded"
+            android:layout_alignParentLeft="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
             android:onClick="SignIn"
             android:text="Sign IN"
             android:id="@+id/bSignIn"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
 
         <Button
             android:onClick="Verify"
             android:id="@+id/bVerify"
-            android:text="Verify Code"
-            android:layout_marginLeft="15dp"
+            android:text="Verify"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:background="@drawable/btn_rounded"
+            android:drawableLeft="@drawable/verify_w"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
+            android:background="@drawable/btn_rounded"
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/resend_w"
             android:id="@+id/bResend"
             android:onClick="Resend"
             android:text="Resend"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

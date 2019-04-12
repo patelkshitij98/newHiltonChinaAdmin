@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.ravi.hiltonadmin1.MainActivity"
     android:orientation="vertical"
-    android:padding="50dp">
+    android:padding="50dp"
+    android:background="@drawable/back4">
 
     <Button
+        android:background="@drawable/btn_rounded"
+        android:textColor="#ffffff"
         android:id="@+id/bViewFooditems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,13 +19,18 @@
         android:text="View food Item"/>
 
     <Button
+        android:background="@drawable/btn_rounded"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
         android:id="@+id/bAddFood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add food Item "
         android:onClick="AddFood"/>
     <Button
-        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_rounded"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
         android:id="@+id/bViewOrder"
         android:onClick="viewOrders"
         android:layout_width="match_parent"
@@ -30,8 +38,15 @@
         android:text="View Orders"/>
 
     <Button
+        android:background="@drawable/btn_rounded"
+        android:textColor="#ffffff"
+        android:drawableLeft="@drawable/signout_w"
+        android:paddingRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SignOut"
