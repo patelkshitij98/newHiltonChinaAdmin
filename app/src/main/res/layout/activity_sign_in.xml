@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back4">
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,21 +11,24 @@
     tools:context="com.example.ravi.hiltonadmin1.SignIn"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@drawable/back4">
+    >
 
     <TextView
         android:id="@+id/tRegisterStatus"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
 
-        android:text="Hello, Welcome!"
+        android:text="Welcome Admin!"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="40dp" />
+        android:textSize="20dp"
+        />
+    <!--android:background="@drawable/rounder_corner"-->
     <EditText
-        android:background="@drawable/rounder_corner"
-        android:drawableLeft="@drawable/phone_b"
+        android:textColorHint="#aaa"
+        android:textColor="#FFFFFF"
+        android:drawableLeft="@drawable/phone_w"
         android:fontFamily="sans-serif"
         android:layout_marginTop="20dp"
         android:inputType="phone"
@@ -31,8 +38,9 @@
         android:id="@+id/ePhone"/>
 
     <EditText
-        android:background="@drawable/rounder_corner"
-        android:drawableLeft="@drawable/key_b"
+        android:textColorHint="#aaa"
+        android:textColor="#FFFFFF"
+        android:drawableLeft="@drawable/key_w"
         android:layout_marginTop="20dp"
         android:id="@+id/eAdminCode"
         android:hint="Enter Admin Code"
@@ -40,8 +48,9 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:background="@drawable/rounder_corner"
-        android:drawableLeft="@drawable/password_b"
+        android:textColorHint="#aaa"
+        android:textColor="#FFFFFF"
+        android:drawableLeft="@drawable/password_w"
         android:inputType="number"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -59,10 +68,11 @@
             android:drawableLeft="@drawable/signin_w"
             android:background="@drawable/btn_rounded"
             android:layout_alignParentLeft="true"
-            android:paddingRight="10dp"
-            android:paddingLeft="5dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="3dp"
             android:onClick="SignIn"
             android:text="Sign IN"
+            android:textSize="12dp"
             android:id="@+id/bSignIn"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
@@ -77,11 +87,12 @@
             android:textColor="#FFFFFF"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:textSize="12dp"
             android:background="@drawable/btn_rounded"
             android:drawableLeft="@drawable/verify_w"
             android:paddingTop="5dp"
-            android:paddingRight="10dp"
-            android:paddingLeft="5dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="3dp"
             android:paddingBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -92,16 +103,18 @@
             android:id="@+id/bResend"
             android:onClick="Resend"
             android:text="Resend"
+            android:textSize="12dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="10dp"
-            android:paddingLeft="5dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="3dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"/>
 
     </RelativeLayout>
 
 </LinearLayout>
+</ScrollView>
