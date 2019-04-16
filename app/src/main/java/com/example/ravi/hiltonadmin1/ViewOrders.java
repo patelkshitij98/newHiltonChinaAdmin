@@ -62,13 +62,12 @@ public class    ViewOrders extends AppCompatActivity {
                             final String PhoneNumber = dataSnapshot.child("Phone").getValue(String.class);
                             final String registrationToken = dataSnapshot.child("FirebaseToken").getValue(String.class);
                             final ArrayList<Items> ItemList = new ArrayList<Items>();
-//                            Toast.makeText(ViewOrders.this,"User Data "+OrderId,Toast.LENGTH_SHORT).show();
                             final long TotalItems[] = new long[1];
                             TotalItems[0] = dataSnapshot.child("Orders").child(OrderId).child("Items").getChildrenCount();
                             final long countItems[]= new long[1];
                             countItems[0]=0;
-                            Log.d(order,"TotalItems= "+TotalItems);
-                            for(DataSnapshot ItemsSnapshot : dataSnapshot.child("Orders").child(OrderId).child("Items").getChildren()) /*****ALl Items Data in the Order******/
+                            Log.d(order,"TotalItems= "+TotalItems[0]);
+                            for(DataSnapshot ItemsSnapshot : dataSnapshot.child("Orders").child(OrderId).child("Items").getChildren()) /*****All Items Data in the Order******/
                             {
                                 final String ItemId = ItemsSnapshot.getKey();
                                 final String ItemNumber = ItemsSnapshot.child("ItemNumber").getValue(String.class);

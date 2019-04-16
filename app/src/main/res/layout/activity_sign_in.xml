@@ -12,14 +12,13 @@
     <TextView
         android:id="@+id/tRegisterStatus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
 
         android:text="Hello, Welcome!"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="40dp"
-        />
+        android:textSize="40dp" />
     <EditText
         android:background="@drawable/rounder_corner"
         android:drawableLeft="@drawable/phone_b"
